@@ -23,11 +23,14 @@ module.exports = {
       colors: {
         "primary-1": "#0C66E4",
         "primary-2": "#5A3FE0",
-        "primary-2": "",
+        "primary-3": "#0549A9",
         "dark-1": "#242D4D",
         "dark-2": "#44546F",
+        "dark-3": "#101012",
+
         "gray-1": "#DCDFE4",
         "purple-light-1": "#F6F4FE",
+        "purple-light-2": "#CCC3FD",
       },
       keyframes: {
         "accordion-down": {

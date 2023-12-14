@@ -19,6 +19,10 @@ export const headerList: IHeader[] = [
     route: "/departments",
   },
   {
+    title: "Salary",
+    route: "/salary",
+  },
+  {
     title: "Report",
     route: "/report",
   },

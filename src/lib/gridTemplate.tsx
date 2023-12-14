@@ -1,0 +1,38 @@
+export const gridImage = (props: any) => (
+  <div>
+    <img
+      className="rounded-xl h-20 md:ml-3"
+      src={props.image}
+      alt="order-item"
+    />
+  </div>
+);
+
+export const gridStatus = (props: any) => (
+  <button
+    type="button"
+    style={{ background: props.StatusBg }}
+    className="text-white py-1 px-2 capitalize rounded-2xl text-md"
+  >
+    {props.contractStatus}
+  </button>
+);
+export const gridOrderImage = (props: any) => (
+  <div>
+    <img
+      className="rounded-xl h-20 md:ml-3"
+      src={props.ProductImage}
+      alt="order-item"
+    />
+  </div>
+);
+
+export const gridOrderStatus = (props: any) => (
+  <button
+    type="button"
+    style={{ background: props.StatusBg }}
+    className="text-white py-1 px-2 capitalize rounded-2xl text-md"
+  >
+    {props.Status}
+  </button>
+);

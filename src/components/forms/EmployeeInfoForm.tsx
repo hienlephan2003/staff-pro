@@ -15,7 +15,13 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "../ui/textarea";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "../ui/select";
 import FileUploader from "../shared/FileUploader";
 import { EmployeeInfoValidation } from "@/lib/validation";
 import { useUserContext } from "@/context/AuthContext";
@@ -63,90 +69,173 @@ const EmployeeInfoForm = ({ action = "Create" }: EmployeeInfoProps) => {
 
   return (
     <Form {...form}>
-      <form
-        onSubmit={form.handleSubmit(onSubmit)}
-        className="flex flex-col gap-9 w-full max-w-5xl"
-      >
-        <FormField
-          control={form.control}
-          name="caption"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel className="text-white">Caption</FormLabel>
-              <FormControl>
-                <Textarea
-                  className="bg-dark-3 border-none h-36 focus-visible:ring-1 focus-visible:ring-offset-1 ring-offset-light-3 custom-scrollbar"
-                  {...field}
-                />
-              </FormControl>
-              <FormMessage className="text-red" />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="file"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel className="text-white">Photo</FormLabel>
-              <FormControl>
-                <FileUploader fieldChange={field.onChange} mediaUrl={""} />
-              </FormControl>
-              <FormMessage className="text-red" />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="location"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel className="text-white">Add Location</FormLabel>
-              <FormControl>
-                <Input
-                  {...field}
-                  type="text"
-                  className="h-12 bg-dark-3 border-none focus-visible:ring-1 focus-visible:ring-offset-1 ring-offset-light-3 "
-                />
-              </FormControl>
-              <FormMessage className="text-red" />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="tags"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel className="text-white">
-                Add Tags(separated by comma ",")
-              </FormLabel>
-              <FormControl>
-                <Input
-                  {...field}
-                  type="text"
-                  placeholder="Art, Expression, Learn"
-                  className="h-12 bg-dark-3 border-none focus-visible:ring-1 focus-visible:ring-offset-1 ring-offset-light-3 "
-                />
-              </FormControl>
-              <FormMessage className="text-red" />
-            </FormItem>
-          )}
-        />
-        <div className="flex gap-4 items-center justify-end">
-          <Button
-            onClick={() => navigate(-1)}
-            type="button"
-            className="shad-button_dark_4"
-          >
-            Cancel
-          </Button>
+      <form onSubmit={form.handleSubmit(onSubmit)}>
+        <div className="flex flex-col lg:flex-row gap-10  w-full">
+          <div className="flex flex-col gap-9 w-full">
+            <FormField
+              control={form.control}
+              name="fullname"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className=" small-medium">Full Name</FormLabel>
+                  <FormControl>
+                    <Input
+                      {...field}
+                      type="text"
+                      placeholder="Full Name"
+                      className="h-10 small-regular  border-gray-1 focus-visible:ring-1 focus-visible:ring-offset-1 ring-offset-light-3 "
+                    />
+                  </FormControl>
+                  <FormMessage className="text-red" />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="jobPosition"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className=" small-medium ">Job Position</FormLabel>
+                  <FormControl>
+                    <Select>
+                      <SelectTrigger className="h-10 small-regular  border-gray-1 focus-visible:ring-1 focus-visible:ring-offset-1 ring-offset-light-3 ">
+                        <SelectValue placeholder="Seelct job position" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="light">Manager</SelectItem>
+                        <SelectItem value="dark">Teacher</SelectItem>
+                        <SelectItem value="system">Doctor</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </FormControl>
+                  <FormMessage className="text-red" />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="imageUrl"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className=" small-medium ">Photo</FormLabel>
+                  <FormControl>
+                    <FileUploader fieldChange={field.onChange} mediaUrl={""} />
+                  </FormControl>
+                  <FormMessage className="text-red" />
+                </FormItem>
+              )}
+            />
+          </div>
+          <div className="flex flex-col gap-9 w-full">
+            <FormField
+              control={form.control}
+              name="fullname"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className=" small-medium ">Phone Number</FormLabel>
+                  <FormControl>
+                    <Input
+                      {...field}
+                      type="text"
+                      placeholder="Full Name"
+                      className="h-10 small-regular  border-gray-1 focus-visible:ring-1 focus-visible:ring-offset-1 ring-offset-light-3 "
+                    />
+                  </FormControl>
+                  <FormMessage className="text-red" />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="department"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className=" small-medium ">Department</FormLabel>
+                  <FormControl>
+                    <Select>
+                      <SelectTrigger className="h-10 small-regular  border-gray-1 focus-visible:ring-1 focus-visible:ring-offset-1 ring-offset-light-3 ">
+                        <SelectValue placeholder="Select department" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="light">Manager</SelectItem>
+                        <SelectItem value="dark">Teacher</SelectItem>
+                        <SelectItem value="system">Doctor</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </FormControl>
+                  <FormMessage className="text-red" />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="manager"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className=" small-medium ">Manager</FormLabel>
+                  <FormControl>
+                    <Select>
+                      <SelectTrigger className="h-10 small-regular  border-gray-1 focus-visible:ring-1 focus-visible:ring-offset-1 ring-offset-light-3 ">
+                        <SelectValue placeholder="Select manager" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="light">Manager</SelectItem>
+                        <SelectItem value="dark">Teacher</SelectItem>
+                        <SelectItem value="system">Doctor</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </FormControl>
+                  <FormMessage className="text-red" />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="email"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className=" small-medium ">Email</FormLabel>
+                  <FormControl>
+                    <Input
+                      {...field}
+                      type="text"
+                      placeholder="employee@gmail.com"
+                      className="h-10 small-regular  border-gray-1 focus-visible:ring-1 focus-visible:ring-offset-1 ring-offset-light-3 "
+                    />
+                  </FormControl>
+                  <FormMessage className="text-red" />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="tags"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className=" small-medium ">
+                    Add Tags(separated by comma ",")
+                  </FormLabel>
+                  <FormControl>
+                    <Input
+                      {...field}
+                      type="text"
+                      placeholder="Art, Expression, Learn"
+                      className="h-10 small-regular  border-gray-1 focus-visible:ring-1 focus-visible:ring-offset-1 ring-offset-light-3 "
+                    />
+                  </FormControl>
+                  <FormMessage className="text-red" />
+                </FormItem>
+              )}
+            />
+          </div>
+        </div>
+        <div className="flex gap-4 mb-5 items-center justify-end">
           <Button
             type="submit"
-            className="shad-button_primary whitespace-nowrap"
+            className="shad-button_primary bg-primary-2 hover:bg-primary-3 whitespace-nowrap"
           >
             {/* {isLoadingCreate || (isLoadingUpdate && "Loading...")} */}
-            {action} Save changes
+            {action} Save
           </Button>
         </div>
       </form>
