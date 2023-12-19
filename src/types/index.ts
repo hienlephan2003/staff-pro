@@ -8,6 +8,16 @@ export type IContextType = {
   setIsAuthenticated: React.Dispatch<React.SetStateAction<boolean>>;
   checkAuthUser: () => Promise<boolean>;
 };
+export type INewEmployeeContextType = {
+  step: any;
+  employeeInfor: any;
+  contract: any;
+  employeeSetting: any;
+  setEmployeeInfor: React.Dispatch<React.SetStateAction<any>>;
+  setContract: React.Dispatch<React.SetStateAction<any>>;
+  setEmployeeSetting: React.Dispatch<React.SetStateAction<any>>;
+  setStep: React.Dispatch<React.SetStateAction<any>>;
+};
 export type IHeader = {
   title: string;
   route: string;

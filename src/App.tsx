@@ -16,11 +16,11 @@ const App = () => {
     <main className="flex h-screen">
       <Routes>
         <Route element={<RootLayout />}>
-          <Route path="/home" element={<Home />}>
-            <Route path="timing" element={<Personal />}></Route>
-            <Route index element={<MyAttendance />}></Route>
+          <Route path="/" element={<Home />}></Route>
+          <Route path="/my-info" element={<MyInfo />}>
+            <Route index element={<Personal />}></Route>
+            <Route path="timing" element={<MyAttendance />}></Route>
           </Route>
-          <Route path="/my-info" element={<MyInfo />} />
           <Route path="/employees" element={<Employees />} />
           <Route path="/departments" element={<Departments />}>
             <Route
